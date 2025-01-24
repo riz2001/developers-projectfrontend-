@@ -6,6 +6,10 @@ import './App.css';
 import { Route, Router, Routes } from 'react-router-dom';
 import Register from './components/Registration';
 import Loginn from './components/Loginn';
+import Quiz from './components/Quiz';
+import ScoresPage from './components/result';
+import PaperCupSurvey from './components/PaperCupSurvey';
+import Surveyr from './Surveyr';
 
 function App() {
   return (
@@ -13,8 +17,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           
-          <Route path="/" element={<Register />} />
-          <Route path="/login" element={<Loginn />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Loginn />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/result" element={<ScoresPage />} />
+          <Route path="/survey" element={<PaperCupSurvey />} />
+          <Route path="/surveyr" element={<Surveyr />} />
         </Routes>
       </BrowserRouter>
   );

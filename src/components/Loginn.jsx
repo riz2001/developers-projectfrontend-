@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate for redirection
 
 // Inline CSS styles
 const styles = {
@@ -64,6 +65,18 @@ const styles = {
   submitButtonHover: {
     backgroundColor: '#0056b3',
   },
+  registerButton: {
+    padding: '12px',
+    backgroundColor: '#28a745',
+    color: 'white',
+    textAlign:'center',
+    fontSize: '16px',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+    marginTop: '15px',
+  },
 };
 
 function Loginn() {
@@ -72,6 +85,8 @@ function Loginn() {
     password: '',
   });
   const [message, setMessage] = useState('');
+
+  const navigate = useNavigate();  // Initialize the useNavigate hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -83,11 +98,24 @@ function Loginn() {
     try {
       const response = await axios.post('http://localhost:5000/login', formData);
       setMessage(response.data.message);
-      // Optionally store token or user info for further use
+
+      // Store token and userId in sessionStorage (or localStorage if you prefer)
+      const { token, userId } = response.data;
+      sessionStorage.setItem('token', token);  // Store the JWT token
+      sessionStorage.setItem('userId', userId);  // Store the userId
+
       console.log('Login success:', response.data);
+
+      // Redirect to quiz page after successful login
+      navigate('/quiz');  // Redirect to the quiz page
+
     } catch (error) {
       setMessage(error.response.data.message || 'Error during login');
     }
+  };
+
+  const handleRegisterRedirect = () => {
+    navigate('/register');  // Redirect to the register page
   };
 
   return (
@@ -125,6 +153,14 @@ function Loginn() {
           Login
         </button>
       </form>
+
+      {/* Register Button */}
+      <button 
+        onClick={handleRegisterRedirect}
+        style={styles.registerButton}
+      >
+        Don't have an account? Register
+      </button>
     </div>
   );
 }

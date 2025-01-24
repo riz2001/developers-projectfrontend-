@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+// Import useNavigate for redirection
 
 // Inline CSS styles
 const styles = {
@@ -64,6 +67,20 @@ const styles = {
   submitButtonHover: {
     backgroundColor: '#0056b3',
   },
+  backButton: {
+    marginTop: '10px',
+    padding: '12px',
+    backgroundColor: '#6c757d',
+    color: 'white',
+    fontSize: '16px',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  },
+  backButtonHover: {
+    backgroundColor: '#5a6268',
+  },
 };
 
 function Registration() {
@@ -76,6 +93,8 @@ function Registration() {
     password: '',
   });
   const [message, setMessage] = useState('');
+
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -90,6 +109,10 @@ function Registration() {
     } catch (error) {
       setMessage(error.response.data.message || 'Error during registration');
     }
+  };
+
+  const handleBackToLogin = () => {
+    navigate('/'); // Navigate back to the login page
   };
 
   return (
@@ -181,6 +204,10 @@ function Registration() {
           Register
         </button>
       </form>
+
+      <button onClick={handleBackToLogin} style={styles.backButton}>
+        Back to Login
+      </button>
     </div>
   );
 }
