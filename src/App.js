@@ -10,6 +10,7 @@ import Quiz from './components/Quiz';
 import ScoresPage from './components/result';
 import PaperCupSurvey from './components/PaperCupSurvey';
 import Surveyr from './Surveyr';
+import DustbinMap from './components/Mapp';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/result" element={<ScoresPage />} />
           <Route path="/survey" element={<PaperCupSurvey />} />
           <Route path="/surveyr" element={<Surveyr />} />
+          <Route path="/map" element={<DustbinMap />} />
         </Routes>
       </BrowserRouter>
   );

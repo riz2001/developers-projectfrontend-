@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
-// Import useNavigate for redirection
 
 // Inline CSS styles
 const styles = {
@@ -13,54 +12,60 @@ const styles = {
     padding: 0,
   },
   registrationContainer: {
-    maxWidth: '400px',
-    margin: '50px auto',
-    padding: '20px',
+    maxWidth: '500px',
+    margin: '80px auto',
+    padding: '30px',
+    width:'4000px',
     backgroundColor: '#fff',
-    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-    borderRadius: '8px',
+    boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)',
+    borderRadius: '12px',
   },
   registrationTitle: {
     textAlign: 'center',
     color: '#333',
-    fontSize: '24px',
-    marginBottom: '20px',
+    fontSize: '26px',
+    fontWeight: 'bold',
+    marginBottom: '30px',
   },
   errorMessage: {
     color: 'red',
     textAlign: 'center',
-    marginBottom: '15px',
+    marginBottom: '20px',
+    fontSize: '14px',
   },
   registrationForm: {
     display: 'flex',
     flexDirection: 'column',
   },
   formField: {
-    marginBottom: '15px',
+    marginBottom: '20px',
   },
   label: {
-    fontSize: '14px',
+    fontSize: '16px',
     color: '#333',
+    marginBottom: '8px',
   },
   input: {
     width: '100%',
-    padding: '10px',
-    marginTop: '5px',
+    padding: '12px',
+    marginTop: '8px',
     border: '1px solid #ccc',
-    borderRadius: '4px',
-    fontSize: '14px',
+    borderRadius: '6px',
+    fontSize: '16px',
+    outline: 'none',
+    transition: 'border-color 0.3s ease',
   },
   inputFocus: {
     borderColor: '#007BFF',
     outline: 'none',
   },
   submitButton: {
-    padding: '12px',
+    padding: '14px',
     backgroundColor: '#007BFF',
     color: 'white',
-    fontSize: '16px',
+    fontSize: '18px',
     border: 'none',
-    borderRadius: '4px',
+    borderRadius: '6px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
   },
@@ -68,13 +73,13 @@ const styles = {
     backgroundColor: '#0056b3',
   },
   backButton: {
-    marginTop: '10px',
-    padding: '12px',
+    marginTop: '20px',
+    padding: '14px',
     backgroundColor: '#6c757d',
     color: 'white',
-    fontSize: '16px',
+    fontSize: '18px',
     border: 'none',
-    borderRadius: '4px',
+    borderRadius: '6px',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
   },

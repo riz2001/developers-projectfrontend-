@@ -36,6 +36,10 @@ const Navbar = () => {
               <li className="nav-item">
                 <a className="nav-link text-white" href="/surveyr">FEEDBACK RESULT</a>
               </li>
+
+              <li className="nav-item">
+                <a className="nav-link text-white" href="/map">MAP</a>
+              </li>
             </ul>
             {/* Logout Button on the Right */}
             <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
